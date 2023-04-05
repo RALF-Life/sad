@@ -114,7 +114,7 @@ RALF consists of the 4 layers:
 
 # Data View
 
-Since we don't use a relational DBMS (MongoDB), we can't provovide you with an ER diagram. However, we can give you some example data:
+Since we don't use a relational DBMS (MongoDB), we can't provovide you with a traditional ER diagram.
 
 **Filter Profile**
 
