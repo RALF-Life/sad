@@ -102,9 +102,13 @@ RALF consists of the 4 layers:
 
 ## Layers
 
-Our layer engineer sadly has no access to internet 
-because he is fighting in a civil war in Northern Africa.
-(and because he's on vacation lol)
+- **Core:** The Core layer is the foundation of RALF. It is responsible for handling the data models, authentication, and authorization of users. 
+
+- **Frontend:** The Frontend layer is responsible for the user interface. It is responsible for displaying information from the Core layer and also for handling user input.
+
+- **API (Engine):** The API (Engine) layer is responsible for the business logic. It is responsible for handling and processing the requests from the Core layer.
+
+- **Infrastructure:** The Infrastructure layer is responsible for providing the necessary resources for RALF. This includes servers, databases, and other related services.
 
 ---
 
@@ -112,132 +116,17 @@ because he is fighting in a civil war in Northern Africa.
 
 Since we don't use a relational DBMS (MongoDB), we can't provovide you with an ER diagram. However, we can give you some example data:
 
+**Filter Profile**
 
-<details>
-    <summary>Filter Profile</summary>
+![filter-profile](./assets/dv-filter-profile.svg)
 
-```json
-{
-  "name": "Rename 'Heinrich Braun' to 'Heinrich' and only include Mondays after 9 o' clock",
-  "cache-duration": "5m",
-  "flows": [
-    {
-      "if": "true",
-      "then": [
-        {
-          "debug": "true 1 ok"
-        },
-        {
-          "if": "true",
-          "then": [
-            {
-              "debug": "true 2 ok"
-            },
-            {
-              "if": "true",
-              "then": [
-                {
-                  "debug": "true 3 ok"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "else": [
-        {
-          "debug": "ok schade"
-        }
-      ]
-    },
-    {
-      "do": "filters/filter-out"
-    },
-    {
-      "do": "actions/regex-replace",
-      "with": {
-        "match": "(?:Braun\\,\\s*(Heinrich))|(?:(Heinrich) Braun)",
-        "case-sensitive": false,
-        "replace": "Braun \"$1\"",
-        "in": [
-          "title",
-          "description"
-        ]
-      }
-    },
-    {
-      "if": "Date.isWeekend()",
-      "then": [
-        "return"
-      ],
-      "else": [
-        "return"
-      ]
-    },
-    {
-      "if": "(Date.isMonday() or Date.isTuesday()) and Date.isAfter(\"9:00\")",
-      "then": [
-        {
-          "do": "filters/filter-in"
-        }
-      ]
-    }
-  ]
-}
-```
+**User**
 
-</details>
+![user](./assets/dv-user.svg)
 
-<details>
-    <summary>User</summary>
+**Engine Log**
 
-```json
-{
-    "_id": "fefefefe-fefe-fefe-fefe-fefefefefefe",
-    "username": "wikwaklhackldackl",
-    "name": {
-        "first": "Luca",
-        "last": "Wikwak"
-    },
-    "email": "steckplatz.vier09@icloud.com",
-    "password": "1$1fefefefefefefefefefefefefefefefefe",
-    "address": {
-        "street": "Am Neuen ICE Bahnhof",
-        "nr": 14,
-        "extra": null,
-        "zc": 187420,
-        "st": "BW"
-    }
-}
-```
-
-</details>
-
-
-<details>
-    <summary>Engine Log</summary>
-
-```json
-{
-    "_id": ObjectID(...),
-    "date": ...,
-    "profile_id": ObjectID(...),
-    "result": {
-        "src": {
-            "sc": 200,
-            "cl": 187112,
-            "mt": "text/calendar"
-        },
-        "out": {
-            "sc": 200,
-            "cl": 7013,
-            "mt": "text/calendar",
-            "contents": Base64(...)
-        }
-    }
-}
-```
-</details>
+![engine-log](./assets/dv-engine-log.svg)
 
 ---
 
