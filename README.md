@@ -73,7 +73,7 @@ See [SRS](https://srs.ralf.life/)
 
 # Logical View
 
-![](./assets/ugabugadugaguga.webp)
+![](./assets/aaaa.png)
 
 ---
 
