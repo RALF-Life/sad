@@ -140,6 +140,6 @@ Additionally, our databases will scale with the amount of users and filter profi
 
 ---
 
-# Quality
+# UX
 
 In order to ensure the best user experience possible, we are committed to providing a superior quality of service. To safeguard user data, such as filter profiles, we maintain a secure database to avoid any potential user dissatisfaction. We have implemented an architectural pattern that allows for portability, allowing users to access our services from both their mobile devices and personal computers. Additionally, the application view will automatically adjust to fit the size of the device being used.
