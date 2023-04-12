@@ -110,6 +110,8 @@ RALF consists of the 4 layers:
 
 - **Infrastructure:** The Infrastructure layer is responsible for providing the necessary resources for RALF. This includes servers, databases, and other related services.
 
+![diagrams](./assets/diamonds!!!!!!!11.png)
+
 ---
 
 # Data View
