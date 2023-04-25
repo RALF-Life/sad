@@ -27,7 +27,7 @@ For example, the [RALF-engine](https://github.com/RALF-Life/engine) contained th
 ```go
 if err := yaml.Unmarshal(ctx.Body(), &cnt); err != nil {
     // TODO: close body?
-		return err
+    return err
 }
 ```
 
